@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Traffic layer</title>
+    <style>
+      html, body, #map-canvas {
+        width: 1920px;
+        height: 1080px;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+function initialize() {
+  // Create an array of styles.
+  var styles = [
+    {
+      featureType: "all",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    },
+    {
+      featureType: "road",
+      elementType: "labels",
+      stylers: [
+        { visibility: "on" }
+        
+      ]
+    },
+    {
+      featureType: "road",
+      elementType: "geometry.fill",
+      stylers: [
+        { color: "#8A2BE2" }
+      ]
+    },
+    {
+      featureType: "road",
+      elementType: "geometry.stroke",
+      stylers: [
+        { color: "#551A8B" }
+    ]
+    },
+    {
+      featureType: "poi",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    },
+    {
+      featureType: "landscape",
+      elementType: "geometry",
+      stylers: [
+        { color: "#551A8B" }
+      ]
+    },
+    {
+      featureType: "poi",
+      elementType: "geometry",
+      stylers: [
+        { color: "#551A8B" }
+      ]
+    },
+    {
+      featureType: "water",
+      elementType: "labels",
+      stylers: [
+        { visibility: "off" }
+      ]
+    },
+    {
+      featureType: "water",
+      elementType: "geometry",
+      stylers: [
+        { color: "#2E0854" }
+      ]
+    }
+  ];
+
+  var styledMap = new google.maps.StyledMapType(styles,
+  {name: "Styled Map"});
+
+
+  var myLatlng = new google.maps.LatLng(42.473537, -83.417980);
+  var mapOptions = {
+    zoom: 12,
+    center: myLatlng,
+    disableDefaultUI: true,
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    }
+  }
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var trafficLayer = new google.maps.TrafficLayer();
+  trafficLayer.setMap(map);
+  map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style');
+}
+
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+<script>
+if (typeof google === 'object' && typeof google.maps === 'object'){
+  console.log('i guess I workes');
+  google.maps.event.addDomListener(window, 'load', initialize);
+}
+else{
+  console.log('i guess i did not');
+  document.getElementById("map-canvas").style.display = 'none';
+  var div1 = document.createElement('div');
+  div1.innerHTML = "No Internet Connection";
+  div1.id = "nointernet";
+  div1.style.cssText = "position:absolute;margin-top:450px;margin-left:670px;float:left;color:#000;font-size:3.9em;";
+  document.getElementsByTagName('body')[0].appendChild(div1);
+}
+</script>
+  </body>
+</html>
