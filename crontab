@@ -1,0 +1,60 @@
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+@reboot sudo sh turnoff.sh
+29 16 * * 1-5 sudo killall feh
+30 16 * * 1-5 sudo sh waitmakeimage.sh
+33 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+33 16 * * 1-5 sudo sh waitmakeimage.sh
+36 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+36 16 * * 1-5 sudo sh killfeh.sh
+36 16 * * 1-5 sudo sh waitmakeimage.sh
+39 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+39 16 * * 1-5 sudo sh killfeh.sh
+39 16 * * 1-5 sudo sh waitmakeimage.sh
+42 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+42 16 * * 1-5 sudo sh killfeh.sh
+42 16 * * 1-5 sudo sh waitmakeimage.sh
+45 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+45 16 * * 1-5 sudo sh killfeh.sh
+45 16 * * 1-5 sudo sh waitmakeimage.sh
+48 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+48 16 * * 1-5 sudo sh killfeh.sh
+48 16 * * 1-5 sudo sh waitmakeimage.sh
+51 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+51 16 * * 1-5 sudo sh killfeh.sh
+51 16 * * 1-5 sudo sh waitmakeimage.sh
+54 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+54 16 * * 1-5 sudo sh killfeh.sh
+54 16 * * 1-5 sudo sh waitmakeimage.sh
+57 16 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+57 16 * * 1-5 sudo sh killfeh.sh
+57 16 * * 1-5 sudo sh waitmakeimage.sh
+*/3 17 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+*/3 17 * * 1-5 sudo sh killfeh.sh
+*/3 17 * * 1-5 sudo sh waitmakeimage.sh
+*/3 18 * * 1-5 DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority sudo feh --quiet --preload -rSfilename -F -Z /home/pi/webimage.png
+*/3 18 * * 1-5 sudo sh killfeh.sh
+*/3 18 * * 1-5 sudo sh waitmakeimage.sh
+34 16 * * 1-5 sudo sh turnon.sh
+1 19 * * 1-5 sudo sh turnoff.sh
+1 22 * * 1-5 sudo sh turnoff.sh
