@@ -1,5 +1,6 @@
 # raspberrytraffic
-Google Maps with Traffic on a Raspberry Pi running Raspbian (a debian build)
+Google Maps with Traffic on a Raspberry Pi running on a 50" TV
+![alt tag](https://raw.githubusercontent.com/jasonhejna/raspberrytraffic/master/Image_rasptraffic.png)
 
 You'll need to do a couple things...
 
